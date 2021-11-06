@@ -37,7 +37,6 @@ export const singleDoctorReducer = (state = { doctor: [] }, action) => {
       };
     case GET_SINGLE_DOCTOR_REQUEST_SUCCESS:
       return {
-        loading: false,
         doctor: action.payload,
       };
     case GET_SINGLE_DOCTOR_REQUEST_FAILED:

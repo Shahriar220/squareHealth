@@ -24,10 +24,11 @@ export const getDoctorById = (id) => async (dispatch) => {
   dispatch({ type: GET_SINGLE_DOCTOR_REQUEST });
   try {
     const response = await axios.get(`${URL_SERV}/doctors/${id}`);
-    console.log(response.data);
+    //console.log(response.data);
+
     dispatch({
       type: GET_SINGLE_DOCTOR_REQUEST_SUCCESS,
-      payload: response.data,
+      payload: [response.data],
     });
   } catch (error) {
     dispatch({ type: GET_SINGLE_DOCTOR_REQUEST_FAILED, payload: error });
