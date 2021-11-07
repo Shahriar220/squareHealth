@@ -9,6 +9,16 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+.leftside {
+    height: 20vh;
+    width: 100%;
+}
+
+.rightside {
+    height: 70vh;
+    width: 100%;
+}
+
 h1 {
     font-size: 20px;
     border-bottom: 30px;

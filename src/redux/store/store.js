@@ -6,10 +6,12 @@ import {
   getDoctorReducer,
   singleDoctorReducer,
 } from "../reducers/doctorsReducer";
+import { userReducer } from "../reducers/userReducer";
 
 const finalReducer = combineReducers({
   getDoctorReducer: getDoctorReducer,
   singleDoctorReducer: singleDoctorReducer,
+  userReducer: userReducer,
 });
 const initialState = {};
 

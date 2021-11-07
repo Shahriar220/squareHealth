@@ -7,7 +7,7 @@ import {
   GET_SINGLE_DOCTOR_REQUEST_SUCCESS,
   GET_SINGLE_DOCTOR_REQUEST_FAILED,
 } from "../types";
-const URL_SERV = "http://localhost:3004";
+const URL_SERV = "https://my-json-server.typicode.com/Shahriar220/fake";
 
 export const getDoctor = () => async (dispatch) => {
   dispatch({ type: GET_DOCTOR_REQUEST });

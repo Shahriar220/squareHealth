@@ -4,7 +4,7 @@ import {
   APPOINTMENT_REQUEST_SUCCESS,
   APPOINTMENT_REQUEST_FAILED,
 } from "../types";
-const URL_SERV = "http://localhost:3004";
+const URL_SERV = "https://my-json-server.typicode.com/Shahriar220/fake";
 export const postAppointment = (data) => async (dispatch) => {
   dispatch({ type: APPOINTMENT_REQUEST });
   try {
