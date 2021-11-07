@@ -1,31 +1,107 @@
 {
-    "doctors": [{
-            "id": 1,
-            "name": "Dr. John Doe",
-            "org": "Kings London Hospital",
-            "availibility": {
-                "sun": "10:00 AM - 06:00 PM",
-                "wed": "06:00 PM - 09:00 PM"
-            },
-            "visitDurationInMin": 15,
-            "daysOfWeek": [0, 3],
-            "description": "Dr.John Doe is available in Sunday and Wednesday. In Sunday he is available from 10 a.m to 6 p.m and in Monday he is available from 6 p.m to 9 p.m",
-            "imageUrl": "https://media.istockphoto.com/photos/portrait-of-middle-aged-asian-female-doctor-standing-in-hospital-picture-id1271328839?b=1&k=20&m=1271328839&s=170667a&w=0&h=SIMzwoe8eu43OoY4M3ElZCMxW9MgDbZbVzMhh4VY2zM="
-        },
-        {
-            "id": 2,
-            "name": "Dr. Mary Ellis",
-            "org": "ABC Hospital",
-            "availibility": {
-                "sun": "10:00 AM - 06:00 PM",
-                "mon": "09:00 PM - 11:00 PM",
-                "thu": "11:00 AM - 02:00 PM"
-            },
-            "visitDurationInMin": 15,
-            "daysOfWeek": [0, 1, 2],
-            "description": "Dr.Mary Eliad is available in Sunday,Monday and Thursday. In Sunday he is available from 10 a.m to 6 p.m and in Monday he is available from 9 p.m to 11 p.m and in Thursday he is available from 11 am to 2pm",
-            "imageUrl": "https://thumbs.dreamstime.com/b/smiling-female-doctor-holding-medical-records-lab-coat-her-office-clipboard-looking-camera-56673035.jpg"
-        }
-    ],
-    "schedule": []
+  "doctors": [
+    {
+      "id": 1,
+      "name": "Dr. John Doe",
+      "org": "Kings London Hospital",
+      "availibility": {
+        "sun": "10:00 AM - 06:00 PM",
+        "wed": "06:00 PM - 09:00 PM"
+      },
+      "visitDurationInMin": 15,
+      "daysOfWeek": [
+        0,
+        3
+      ],
+      "description": "Dr.John Doe is available in Sunday and Wednesday. In Sunday he is available from 10 a.m to 6 p.m and in Monday he is available from 6 p.m to 9 p.m",
+      "imageUrl": "https://media.istockphoto.com/photos/portrait-of-middle-aged-asian-female-doctor-standing-in-hospital-picture-id1271328839?b=1&k=20&m=1271328839&s=170667a&w=0&h=SIMzwoe8eu43OoY4M3ElZCMxW9MgDbZbVzMhh4VY2zM="
+    },
+    {
+      "id": 2,
+      "name": "Dr. Mary Ellis",
+      "org": "ABC Hospital",
+      "availibility": {
+        "sun": "10:00 AM - 06:00 PM",
+        "mon": "09:00 PM - 11:00 PM",
+        "thu": "11:00 AM - 02:00 PM"
+      },
+      "visitDurationInMin": 15,
+      "daysOfWeek": [
+        0,
+        1,
+        2
+      ],
+      "description": "Dr.Mary Eliad is available in Sunday,Monday and Thursday. In Sunday he is available from 10 a.m to 6 p.m and in Monday he is available from 9 p.m to 11 p.m and in Thursday he is available from 11 am to 2pm",
+      "imageUrl": "https://thumbs.dreamstime.com/b/smiling-female-doctor-holding-medical-records-lab-coat-her-office-clipboard-looking-camera-56673035.jpg"
+    }
+  ],
+  "schedule": [
+    {
+      "date": "2021-11-07T10:30:03.765Z",
+      "name": "",
+      "reason": "",
+      "id": 1
+    },
+    {
+      "date": "2021-11-07T10:30:03.765Z",
+      "name": "",
+      "reason": "",
+      "id": 2
+    },
+    {
+      "date": "2021-11-07T10:30:03.765Z",
+      "name": "",
+      "reason": "",
+      "id": 3
+    },
+    {
+      "date": "2021-11-07T10:30:03.765Z",
+      "name": "",
+      "reason": "",
+      "id": 4
+    },
+    {
+      "date": "2021-11-07T10:30:03.765Z",
+      "name": "",
+      "reason": "",
+      "id": 5
+    },
+    {
+      "date": "2021-11-07T10:30:03.765Z",
+      "name": "",
+      "reason": "",
+      "id": 6
+    },
+    {
+      "date": "2021-11-07T10:30:03.765Z",
+      "name": "",
+      "reason": "",
+      "id": 7
+    },
+    {
+      "date": "2021-11-07T10:30:03.765Z",
+      "name": "",
+      "reason": "",
+      "id": 8
+    },
+    {
+      "date": "2021-11-07T10:30:03.765Z",
+      "name": "",
+      "reason": "",
+      "id": 9
+    },
+    {
+      "date": "2021-11-09T10:45:00.000Z",
+      "name": "hg",
+      "phone": "010101",
+      "reason": "oioioi",
+      "id": 10
+    },
+    {
+      "date": "2021-11-12T10:30:48.000Z",
+      "name": "",
+      "reason": "",
+      "id": 11
+    }
+  ]
 }
