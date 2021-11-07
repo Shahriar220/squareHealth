@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useFormik } from "formik";
-import * as Yup from "yup";
+
 import { useDispatch, useSelector } from "react-redux";
 
 import { getDoctorById } from "../../redux/actions/doctorsAction";
@@ -10,33 +9,15 @@ import { postAppointment } from "../../redux/actions/usersAction";
 import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
 import moment from "moment";
+import { boolean } from "yup";
 
 const SelectedDoctorScreen = (props) => {
-  const formik = useFormik({
-    initialValues: { name: "", phoneNumber: "", visitReason: "" },
-    validationSchema: Yup.object({
-      name: Yup.string().required("Name is required"),
-      phoneNumber: Yup.number().required("Phone number is required"),
-      visitReason: Yup.string().required("Visit Reason is Required"),
-    }),
-    onSubmit: (values, { resetForm }) => {
-      handleSubmit(values);
-    },
-  });
-  const handleSubmit = (values, startDate) => {
-    const date = startDate;
-    const format1 = "YYYY-MM-DD HH:mm:ss";
-    const data = {
-      date: moment(date).format(format1),
-      name: values.name,
-      phoneNumber: values.phoneNumber,
-      visitReason: values.visitReason,
-    };
-    dispatch(postAppointment(data));
-  };
-  // const [name, setName] = useState("");
-  // const [phoneNumber, setPhoneNumber] = useState();
-  // const [visitReason, setVisitReason] = useState("");
+  const [name, setName] = useState("");
+  const [nameError, setNameError] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState();
+  const [phoneNumberError, setPhoneNumberError] = useState("");
+  const [visitReason, setVisitReason] = useState("");
+  const [visitReasonError, setVisitReasonError] = useState("");
   const [startDate, setStartDate] = useState(
     setHours(setMinutes(new Date(), 30), 16)
   );
@@ -48,39 +29,49 @@ const SelectedDoctorScreen = (props) => {
   useEffect(() => {
     dispatch(getDoctorById(id));
   }, [dispatch, id]);
-  const errorHelper = (formik, values) => ({
-    error: formik.errors[values] && formik.touched[values] ? true : false,
-    helperText:
-      formik.errors[values] && formik.touched[values]
-        ? formik.errors[values]
-        : null,
-  });
-  // function Appointment() {
-  //   const data = {
-  //     startDate,
-  //     name,
-  //     phoneNumber,
-  //     visitReason,
-  //   };
-  //   if(data.name===""){
-  //     console.log(error)
-  //   }
-  //   dispatch(postAppointment(data));
-  //   setDisplay(false);
-  //   setName("");
-  //   setPhoneNumber("");
-  //   setVisitReason("");
-  // }
-  //sunday=0,monday=1,tuesday=2,wednesday=3,thursday=4,friday=5,saturday=6
-  // const filterDay = (date) => {
-  //   const day = getDay(date);
-  //   return day !== 2 && day !== 5 && day !== 6;
-  // const i = id;
-  // if (i === 1) {
-  //   return day !== 1 && day !== 2 && day !== 4 && day !== 5 && day !== 6;
-  // } else {
-  //   return day !== 3 && day !== 4 && day !== 5 && day !== 6;
-  // }
+
+  function Appointment() {
+    const data = {
+      selectedDoctorId: id,
+      startDate: moment(startDate).format("YYYY-MM-DD HH:mm:ss"),
+      name,
+      phoneNumber,
+      visitReason,
+    };
+    const isValid = formValidation();
+    if (isValid) {
+      dispatch(postAppointment(data));
+      setDisplay(false);
+      setName("");
+      setPhoneNumber("");
+      setVisitReason("");
+    }
+  }
+
+  const formValidation = () => {
+    const nameError = {};
+    const phoneNumberError = {};
+    const visitReasonError = {};
+    let isValid = true;
+    if (name.trim().length < 5) {
+      nameError.nameShort = "Name is too Short";
+      isValid = false;
+    }
+    if (phoneNumber.trim().length < 5) {
+      phoneNumberError.phoneNumberError = "Enter valid Number";
+      isValid = false;
+    }
+    if (visitReason.trim().length < 2) {
+      visitReasonError.visitReasonError = "Too short reason";
+      isValid = false;
+    }
+
+    setNameError(nameError);
+    setVisitReasonError(visitReasonError);
+    setPhoneNumberError(phoneNumberError);
+    return isValid;
+  };
+
   return (
     <div>
       <div id="datepicker-container">
@@ -119,6 +110,9 @@ const SelectedDoctorScreen = (props) => {
                   onChange={(e) => setName(e.target.value)}
                   className="mb-3 form-control"
                 />
+                {Object.keys(nameError).map((key) => {
+                  return <div style={{ color: "red" }}>{nameError[key]}</div>;
+                })}
                 <input
                   required
                   type="text"
@@ -127,6 +121,11 @@ const SelectedDoctorScreen = (props) => {
                   onChange={(e) => setPhoneNumber(e.target.value)}
                   className="mb-3 form-control"
                 />
+                {Object.keys(phoneNumberError).map((key) => {
+                  return (
+                    <div style={{ color: "red" }}>{phoneNumberError[key]}</div>
+                  );
+                })}
                 <input
                   required
                   type="text"
@@ -135,7 +134,11 @@ const SelectedDoctorScreen = (props) => {
                   value={visitReason}
                   onChange={(e) => setVisitReason(e.target.value)}
                 />
-
+                {Object.keys(visitReasonError).map((key) => {
+                  return (
+                    <div style={{ color: "red" }}>{visitReasonError[key]}</div>
+                  );
+                })}
                 <button className="btn mt-3 mb-4" onClick={Appointment}>
                   Take Appointment
                 </button>

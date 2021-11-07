@@ -10,18 +10,18 @@ export default function DoctorsDetails({ doctor }) {
   return (
     <div className="mb-8 p-3 shadow-sm p-3 mb-5 bg-white rounded">
       <div onClick={handleShow}>
+        <h1 className="mb-1 mt-1">{doctor.name}</h1>
         <img
           src={doctor.imageUrl}
           style={{ height: "150px", width: "150px" }}
           alt=""
           className="img-fluid"
         />
-        <h1 className="mb-1 mt-1">Doctors Name: {doctor.name}</h1>
       </div>
       <div className="flex-container"></div>
       <div className="flex-container">
         <div className="w-1">
-          <h4>Doctors Organization: {doctor.org}</h4>
+          <h4>{doctor.org}</h4>
         </div>
       </div>
       <div className="flex-container">
@@ -35,7 +35,7 @@ export default function DoctorsDetails({ doctor }) {
         </div>
       </div>
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton onClick={handleClose}>
+        <Modal.Header closeButton onClick={() => setShow(false)}>
           <Modal.Title>{doctor.name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
